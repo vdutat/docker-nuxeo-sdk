@@ -1,4 +1,4 @@
-FROM nuxeo/nuxeo:8.10
+FROM nuxeo:8.10
 MAINTAINER Vincent Dutat <vincent.dutat@gmail.com>
 USER root
 
