@@ -5,6 +5,7 @@ USER root
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - \
     && apt-get install -y ant nodejs vim \
     && apt-get update \
+    && apt-get install mediainfo iproute2 ffmpeg x264 -y --no-install-recommends \
     && npm install -g nuxeo-cli \
     && ln -s /opt/nuxeo/server /distribution
 RUN mkdir -p /opt/nuxeo/server/packages/store
