@@ -4,8 +4,10 @@ USER root
 
 RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - \
     && apt-get install -y ant nodejs vim \
+    && apt-get install -y bc \
     && apt-get install -y xvfb libfontconfig wkhtmltopdf \
     && apt-get update \
+	&& apt-get upgrade -y \
     && apt-get install mediainfo iproute2 ffmpeg x264 -y --no-install-recommends \
     && npm install -g nuxeo-cli \
     && ln -s /opt/nuxeo/server /distribution
@@ -20,4 +22,9 @@ RUN chown -R 1000:1000 /opt/nuxeo/server/packages
 USER 1000
 
 CMD ["nuxeoctl","console"]
+
+# TODO
+#ADD files/deploy.sh /deploy.sh
+#RUN chmod 0755 /deploy.sh
+#CMD ["bash", "/deploy.sh"]
 
